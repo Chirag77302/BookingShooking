@@ -195,7 +195,7 @@ function Restaurants(id) {
         <i className="fas hover:scale-110 transition-all hover:rotate-90 active:scale-105  transform text-3xl fa-arrow-circle-right"></i>
       </div>
       <div className="grid  justify-items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 py-14 gap-4 ">
-        {/* {restaurants.data.map(r => singleComponent(r._id))} */}
+        {restaurants.data.map(r => singleComponent(r._id))}
         {singleComponent(id)}
         {singleComponent(id)}
         {singleComponent(id)}

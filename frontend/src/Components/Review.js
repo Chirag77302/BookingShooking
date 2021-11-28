@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 const Review = (props) => {
+<<<<<<< HEAD
   const [state, setState] = useState("");
   const [title, setTitle] = useState("");
   const userLogin = useSelector((state) => state.userLogin);
@@ -19,11 +20,14 @@ const Review = (props) => {
     console.log(data);
     setState("");
   }
+=======
+>>>>>>> 44877abaac97ed275ead10018d28e3f41537c611
 
   return (
     <div class="grid grid-cols-9 gap-4 m-4">
       <div class="sm:grid-cols-0 col-start-1 col-end-3"></div>
 
+<<<<<<< HEAD
       <div class="col-start-3 col-end-7 ">
         <form>
           <div class="md:flex md:items-center mb-6">
@@ -32,6 +36,15 @@ const Review = (props) => {
                 Title
               </label>
               <textarea
+=======
+    async function handleClick(){
+        // await axios.post('/api/' + {props[type]} + '/update/' + {props[id]}',{userid:userInfo._id,review:state});
+        await axios.post('/api/restraunts/update/619f68361d46631ba27b82ca',{userid:userInfo._id,review:state});
+        console.log(userInfo);
+        console.log(state);
+        setState("");
+    }
+>>>>>>> 44877abaac97ed275ead10018d28e3f41537c611
 
                 rows="1"
                 cols="50"

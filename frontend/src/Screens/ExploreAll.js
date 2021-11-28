@@ -1,14 +1,31 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import Rating from "../components/Rating";
 import SideBar from "./SideBar";
 import ReactSearchBox from "react-search-box";
 import DropDown from "../components/dropdown";
 import Slider from "../components/slider";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { listRestaurants } from "../actions/restaurantActions";
+// import Review from "../components/Review";
+// import ProductReviewCard from "../components/ProductReview";
+// import { useNavigate, useParams } from "react-router";
+
 
 export default function ExploreAll() {
   const [showHotels, setHotels] = useState(false);
   const [id, setId] = useState(0);
+      
+      const dispatch = useDispatch();
+      const data1 = useSelector((state) => state.restaurantList);
+
+      const { restaurants, loading1 } = data1;
+      console.log('all rests',restaurants);
+      useEffect(() => {
+        dispatch(listRestaurants());
+      }, [dispatch]);
+
+
   const data = [
     {
       key: "john",
@@ -149,6 +166,7 @@ function Hotels(id) {
         <i className="fas hover:scale-110 transition-all hover:rotate-90 active:scale-105  transform text-3xl fa-arrow-circle-right"></i>
       </div>
       <div className="grid  justify-items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 py-14 gap-4 ">
+        {/* {restaurants.data.map(r => singleComponent(r._id))} */}
         {singleComponent(id)}
         {singleComponent(id)}
         {singleComponent(id)}
@@ -177,6 +195,7 @@ function Restaurants(id) {
         <i className="fas hover:scale-110 transition-all hover:rotate-90 active:scale-105  transform text-3xl fa-arrow-circle-right"></i>
       </div>
       <div className="grid  justify-items-center md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 py-14 gap-4 ">
+        {/* {restaurants.data.map(r => singleComponent(r._id))} */}
         {singleComponent(id)}
         {singleComponent(id)}
         {singleComponent(id)}
